@@ -1,7 +1,7 @@
 # Личный проект «Большое путешествие» [![Build status][travis-image]][travis-url]
 
 * Студент: [Лена Фишова](https://up.htmlacademy.ru/ecmascript/11/user/1103163).
-* Наставник: `Неизвестно`.
+* Наставник: [Сергей Рубец] (https://htmlacademy.ru/profile/amator).
 
 ---
 
