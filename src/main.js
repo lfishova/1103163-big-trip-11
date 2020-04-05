@@ -282,6 +282,23 @@ const createPointTemplate = () => {
   );
 };
 
+const createTripInfoSection = () => {
+  return (
+    ` <section class="trip-main__trip-info  trip-info">
+    </section> `
+  );
+};
+
+const createTripInfo = () => {
+  return (
+    ` <div class="trip-info__main">
+        <h1 class="trip-info__title">Amsterdam — Chamonix — Geneva</h1>
+
+        <p class="trip-info__dates">Mar 18&nbsp;—&nbsp;20</p>
+    </div> `
+  );
+};
+
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
@@ -303,6 +320,9 @@ const tripMenuElement = tripMainElement.querySelector(`.trip-controls`);
 const tripMenuVissuallyHiddenElements = tripMenuElement.querySelectorAll(`.visually-hidden`);
 const tripControls = [createMenuTemplate(), createFilterTemplate()];
 const tripEvent = document.querySelector(`.trip-events`);
+render(tripMainElement, createTripInfoSection(), `afterbegin`);
+const tripInfoSection = tripMainElement.querySelector(`.trip-info`);
+render(tripInfoSection, createTripInfo(), `beforeend`);
 renderControls(TRIP_CONTROLS);
 render(tripEvent, createSortTemplate(), `beforeend`);
 render(tripEvent, createEventEditTemplate(), `beforeend`);
