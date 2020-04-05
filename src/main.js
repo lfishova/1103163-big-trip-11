@@ -299,6 +299,14 @@ const createTripInfo = () => {
   );
 };
 
+const createTripCost = () => {
+  return (
+    ` <p class="trip-info__cost">
+      Total: €&nbsp;<span class="trip-info__cost-value">1230</span>
+    </p> `
+  );
+};
+
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
@@ -323,6 +331,7 @@ const tripEvent = document.querySelector(`.trip-events`);
 render(tripMainElement, createTripInfoSection(), `afterbegin`);
 const tripInfoSection = tripMainElement.querySelector(`.trip-info`);
 render(tripInfoSection, createTripInfo(), `beforeend`);
+render(tripInfoSection, createTripCost(), `beforeend`);
 renderControls(TRIP_CONTROLS);
 render(tripEvent, createSortTemplate(), `beforeend`);
 render(tripEvent, createEventEditTemplate(), `beforeend`);
