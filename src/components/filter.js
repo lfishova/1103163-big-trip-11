@@ -8,14 +8,13 @@ const createFilterMarkup = (name) => {
 };
 
 export const createFilterTemplate = () => {
-  const filterMarkup = createFilterMarkup(`Everything`);
+  const filterMarkup = [{name: `Everything`}, {name: `Future`}, {name: `Past`}].map((it) => createFilterMarkup(it.name)).join(`\n`);
   return (
     ` <form class="trip-filters" action="#" method="get">
-        ${filterMarkup}
-        ${filterMarkup}
         ${filterMarkup}
         <button class="visually-hidden" type="submit">Accept filter</button>
       </form> `
   );
 };
+
 
