@@ -1,14 +1,14 @@
-const createFilterMarkup = () => {
+const createFilterMarkup = (name) => {
   return (
     ` <div class="trip-filters__filter">
-        <input id="filter-everything" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="everything" checked>
-        <label class="trip-filters__filter-label" for="filter-everything">Everything</label>
+        <input id="filter-${name}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="${name}" checked>
+        <label class="trip-filters__filter-label" for="filter-${name}">${name}</label>
     </div> `
   );
 };
 
 export const createFilterTemplate = () => {
-  const filterMarkup = createFilterMarkup();
+  const filterMarkup = createFilterMarkup(`Everything`);
   return (
     ` <form class="trip-filters" action="#" method="get">
         ${filterMarkup}
