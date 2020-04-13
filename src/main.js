@@ -6,6 +6,7 @@ import {createPointTemplate} from "./components/point";
 import {createTripInfoSection} from "./components/trip-section";
 import {createTripInfo} from "./components/trip-info";
 import {createTripCost} from "./components/trip-cost";
+import {generatePoints} from "./mock/point.js";
 import {generateFilters} from "./mock/filter.js";
 
 const TRIP_CONTROLS = 2;
@@ -22,11 +23,12 @@ const renderControls = (countTripControls) => {
 };
 
 const renderPoints = (countPoints) => {
-  for (let i = 0; i < countPoints; i++) {
-    render(tripEvent, createPointTemplate(), `beforeend`);
+  for (let i = 1; i < countPoints; i++) {
+    render(tripEvent, createPointTemplate(points[i]), `beforeend`);
   }
 };
 const filters = generateFilters();
+const points = generatePoints(COUNT_POINTS);
 const tripMainElement = document.querySelector(`.trip-main`);
 const tripMenuElement = tripMainElement.querySelector(`.trip-controls`);
 const tripMenuVissuallyHiddenElements = tripMenuElement.querySelectorAll(`.visually-hidden`);
@@ -38,5 +40,5 @@ render(tripInfoSection, createTripInfo(), `beforeend`);
 render(tripInfoSection, createTripCost(), `beforeend`);
 renderControls(TRIP_CONTROLS);
 render(tripEvent, createSortTemplate(), `beforeend`);
-render(tripEvent, createEventEditTemplate(), `beforeend`);
-renderPoints(COUNT_POINTS);
+render(tripEvent, createEventEditTemplate(points[0]), `beforeend`);
+renderPoints(points.length);

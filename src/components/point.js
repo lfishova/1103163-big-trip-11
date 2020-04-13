@@ -1,4 +1,5 @@
-export const createPointTemplate = () => {
+export const createPointTemplate = (point) => {
+  const {} = point;
   return (
     ` <div class="event">
         <div class="event__type">

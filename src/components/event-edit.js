@@ -1,4 +1,5 @@
-export const createEventEditTemplate = () => {
+export const createEventEditTemplate = (point) => {
+  const {} = point;
   return (
     `<form class="event  event--edit" action="#" method="post">
         <header class="event__header">
