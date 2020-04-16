@@ -8,9 +8,10 @@ import {createTripInfo} from "./components/trip-info";
 import {createTripCost} from "./components/trip-cost";
 import {generatePoints} from "./mock/point.js";
 import {generateFilters} from "./mock/filter.js";
+import {generateMenus} from "./mock/menu.js";
 
 const TRIP_CONTROLS = 2;
-const COUNT_POINTS = 3;
+const COUNT_POINTS = 20;
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
@@ -28,11 +29,12 @@ const renderPoints = (countPoints) => {
   }
 };
 const filters = generateFilters();
+const menus = generateMenus();
 const points = generatePoints(COUNT_POINTS);
 const tripMainElement = document.querySelector(`.trip-main`);
 const tripMenuElement = tripMainElement.querySelector(`.trip-controls`);
 const tripMenuVissuallyHiddenElements = tripMenuElement.querySelectorAll(`.visually-hidden`);
-const tripControls = [createMenuTemplate(), createFilterTemplate(filters)];
+const tripControls = [createMenuTemplate(menus), createFilterTemplate(filters)];
 const tripEvent = document.querySelector(`.trip-events`);
 render(tripMainElement, createTripInfoSection(), `afterbegin`);
 const tripInfoSection = tripMainElement.querySelector(`.trip-info`);

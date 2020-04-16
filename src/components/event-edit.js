@@ -1,12 +1,14 @@
 export const createEventEditTemplate = (point) => {
-  const {} = point;
+  const {type, destination, basePrice} = point;
+  // const city = `Oslo`;
+  // const price = `1000`;
   return (
     `<form class="event  event--edit" action="#" method="post">
         <header class="event__header">
           <div class="event__type-wrapper">
             <label class="event__type  event__type-btn" for="event-type-toggle-1">
               <span class="visually-hidden">Choose event type</span>
-              <img class="event__type-icon" width="17" height="17" src="img/icons/flight.png" alt="Event type icon">
+              <img class="event__type-icon" width="17" height="17" src="img/icons/${type}.png" alt="Event type icon">
             </label>
             <input class="event__type-toggle  visually-hidden" id="event-type-toggle-1" type="checkbox">
 
@@ -73,9 +75,9 @@ export const createEventEditTemplate = (point) => {
 
           <div class="event__field-group  event__field-group--destination">
             <label class="event__label  event__type-output" for="event-destination-1">
-              Flight to
+              ${type} to
             </label>
-            <input class="event__input  event__input--destination" id="event-destination-1" type="text" name="event-destination" value="Chamonix" list="destination-list-1">
+            <input class="event__input  event__input--destination" id="event-destination-1" type="text" name="event-destination" value="${destination.name}" list="destination-list-1">
             <datalist id="destination-list-1">
               <option value="Amsterdam"></option>
               <option value="Geneva"></option>
@@ -100,7 +102,7 @@ export const createEventEditTemplate = (point) => {
               <span class="visually-hidden">Price</span>
               €
             </label>
-            <input class="event__input  event__input--price" id="event-price-1" type="text" name="event-price" value="160">
+            <input class="event__input  event__input--price" id="event-price-1" type="text" name="event-price" value="${basePrice}">
           </div>
 
           <button class="event__save-btn  btn  btn--blue" type="submit">Save</button>
@@ -174,3 +176,4 @@ export const createEventEditTemplate = (point) => {
     </form> `
   );
 };
+
